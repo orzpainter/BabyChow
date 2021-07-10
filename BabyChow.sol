@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-import "@openzeppelin/contracts/utils/Address.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/ERC20.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/SafeMath.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/Address.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/Ownable.sol";
 
-import "./Interfaces/IUniswapV2Factory.sol";
-import "./Interfaces/IUniswapV2Pair.sol";
-import "./Interfaces/IUniswapV2Router02.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Factory.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Pair.sol";
+import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Router02.sol";
 
 contract BabyChow is Context, IERC20, Ownable {
     using SafeMath for uint256;
