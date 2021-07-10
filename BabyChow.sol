@@ -1,21 +1,21 @@
 // SPDX-License-Identifier: Unlicensed
 pragma solidity ^0.8.4;
 
-import "https://github.com/orzpainter/BabyChow/blob/main/ERC20.sol";
-import "https://github.com/orzpainter/BabyChow/blob/main/SafeMath.sol";
-import "https://github.com/orzpainter/BabyChow/blob/main/Address.sol";
-import "https://github.com/orzpainter/BabyChow/blob/main/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/utils/Address.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Factory.sol";
-import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Pair.sol";
-import "https://github.com/orzpainter/BabyChow/blob/main/IUniswapV2Router02.sol";
+import "./Interfaces/IUniswapV2Factory.sol";
+import "./Interfaces/IUniswapV2Pair.sol";
+import "./Interfaces/IUniswapV2Router02.sol";
 
 contract BabyChow is Context, IERC20, Ownable {
     using SafeMath for uint256;
     using Address for address;
 
     address payable private marketingAddress =
-        payable(0x4174b898816FE9cd11617F2f43f37FDe1486Fa5a);
+        payable(0x0eC4e6DD2f95a47140535c32Ff3B663BD589dcc0);
     address public immutable deadAddress =
         0x000000000000000000000000000000000000dEaD;
     mapping(address => uint256) private _rOwned;
@@ -46,7 +46,7 @@ contract BabyChow is Context, IERC20, Ownable {
 
     uint256 private marketingDivisor = 4;
 
-    uint256 public _maxTxAmount = 3000000 * 10**6 * 10**9;
+    uint256 public _maxTxAmount = 10000000 * 10**6 * 10**9;
     uint256 private minimumTokensBeforeSwap = 200000 * 10**6 * 10**9;
     uint256 private buyBackUpperLimit = 1 * 10**18;
 
@@ -83,7 +83,7 @@ contract BabyChow is Context, IERC20, Ownable {
         _rOwned[_msgSender()] = _rTotal;
 
         IUniswapV2Router02 _uniswapV2Router = IUniswapV2Router02(
-            0x10ED43C718714eb63d5aA57B78B54704E256024E
+            0xD99D1c33F9fC3444f8101754aBC46c52416550D1
         );
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
         .createPair(address(this), _uniswapV2Router.WETH());
